@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <template id=menu-option be-indefinite>
+        <a target="_blank">
+            <i></i>
+            <h3></h3>
+        </a>
+        <script transform='{
+            "a": {
+                "href": "url",
+                "className": "hyperlinkCss",
+                ".style.transitionDelay": "transitionDelay"
+            },
+            "i":{
+                "className": "icon"
+            },
+            "h3": {
+                "textContent": "label",
+                "className": "labelCss"
+            }
+        }'>
+            ({type, open, index}) => ({
+                hyperlinkCss: `menu-${type}-option`,
+                transitionDelay: `${(open ? 200 : 0) + 50*index}ms`,
+                closed: !open,
+                labelCss: type === 'quick' ? 'tooltip' : 'label'
+            });
+        </script>
+    </template>
+
+    <menu-option be-ideating></menu-option>
+    <script type=importmap>
+        {
+            "imports": {
+                "xtal-element/": "../node_modules/xtal-element/",
+                "trans-render/": "../node_modules/trans-render/",
+                "be-decorated/": "../node_modules/be-decorated/",
+                "be-exportable/": "../node_modules/be-exportable/",
+                "be-free-ranged/": "../node_modules/be-free-ranged/",
+                "be-hive/": "../node_modules/be-hive/",
+                "be-indefinite/": "../node_modules/be-indefinite/"
+            }
+        }
+    </script>
+    <script type=module>
+        import '../be-ideating.js'
+    </script>
+</body>
+</html>
